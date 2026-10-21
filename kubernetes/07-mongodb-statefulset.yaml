@@ -20,9 +20,6 @@ spec:
         ports:
         - containerPort: 27017
           name: mongodb
-        volumeMounts:
-        - name: mongodb-data
-          mountPath: /data/db
         resources:
           requests:
             memory: "256Mi"
@@ -30,12 +27,3 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-  volumeClaimTemplates:
-  - metadata:
-      name: mongodb-data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "gp2"
-      resources:
-        requests:
-          storage: 5Gi

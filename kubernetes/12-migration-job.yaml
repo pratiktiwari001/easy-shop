@@ -20,7 +20,7 @@ data:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: db-migration-job-v2
+  name: db-migration-job
   namespace: easyshop
 spec:
   backoffLimit: 2
@@ -32,7 +32,7 @@ spec:
           name: ts-config
       containers:
       - name: migration
-        image: iemafzal/easyshop-migration:9
+        image: pratiktiwari001/easyshop-migration
         envFrom:
           - configMapRef:
               name: easyshop-config

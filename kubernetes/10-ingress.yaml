@@ -18,12 +18,8 @@ metadata:
     # SSL backend validation is disabled (alternative to configuration-snippet)
     nginx.ingress.kubernetes.io/ssl-verify: "false"
 spec:
-  tls:
-  - hosts:
-    - easyshop.letsdeployit.com
-    secretName: easyshop-tls
   rules:
-  - host: easyshop.letsdeployit.com
+  - host: localhost
     http:
       paths:
       - path: /
@@ -32,5 +28,5 @@ spec:
           service:
             name: easyshop-service
             port:
-              number: 80
+              number: 3000
  
